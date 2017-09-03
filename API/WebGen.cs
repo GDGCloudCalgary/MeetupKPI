@@ -11,20 +11,19 @@ namespace API
 {
     class WebGen
     {
-        public const string Meetup_API_Key = "MEETUP_API_KEY";
+        public const string Meetup_API_Key = "6dcb6c2e1f664511a49537623f51";
 
         public static string GetPageAsString(Uri address)
         {
-            string Result = null;
+            string Result = "";
             string RateLimit = "";
 
             // check if meetup api key is set
-            
             Debug.Assert(Meetup_API_Key != "MEETUP_API_KEY", "Edit WebGen.cs and replace MEETUP_API_KEY with your Meetup API Key.");
 
 
 
-            while (Result == null)
+            while (Result == "")
             {
                 try
                 {
@@ -57,7 +56,8 @@ namespace API
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Something more serious happened, like for example you don't have network access we cannot talk about a server exception here as the server probably was never reached");
+                    Console.WriteLine("Something more serious happened, like for example you don't have network " +
+                        "access we cannot talk about a server exception here as the server probably was never reached");
                     Console.WriteLine(ex.Message);
                 }
 
@@ -65,15 +65,8 @@ namespace API
                 {
 
                 }
-
-                //if (Convert.ToInt16(RateLimit) < 2)
-                //{
-                //    RateLimit = "Ratelimit Reached";
-
-                //    Console.WriteLine("Ratelimit Reached, sonoozing for 15 seconds...");
-                //    System.Threading.Thread.Sleep(15000);
-                //}
-                if(Result == null)
+               
+                if(Result == "")
                 {
                     Console.WriteLine("WebGet Result is Null, retrying in 15 seconds....");
                     System.Threading.Thread.Sleep(15000);

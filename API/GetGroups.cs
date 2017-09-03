@@ -110,8 +110,11 @@ namespace API
                     }
 
                     GroupTotalEvents = result.topics.Count().ToString();
-                 
-                    JsonDS.Add(new string[] { GroupName, GroupId, GroupTotalMembers, GroupCreated, GroupUrlName, GroupOrganizerName, GroupDescription, GroupTotalEvents });
+
+                    Regex rgx = new Regex("[^a-zA-Z0-9 -]");
+
+                    
+                    JsonDS.Add(new string[] { rgx.Replace(GroupName, ""), GroupId, GroupTotalMembers, GroupCreated, GroupUrlName, GroupOrganizerName, rgx.Replace(GroupDescription, ""), GroupTotalEvents });
                 }
             }
 

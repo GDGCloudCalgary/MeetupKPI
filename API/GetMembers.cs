@@ -48,9 +48,6 @@ namespace API
                     string MemeberVisited = DateTimeOffset.FromUnixTimeMilliseconds(result.visited).ToString("yyyy-MM-dd");
 
                      
-                    //if(/*MemberId == "39538502" ||  MemberId== "192277157"  || MemberId=="221558655"*/ MemberId == "93011222")
-                    //{ int x = 0; }
-
                     Regex rgx = new Regex("[^a-zA-Z0-9 -]");
 
                     JsonDS.Add(new string[] { rgx.Replace(MemberName, ""), MemberId, MemberJoined, MemberStatus, MemberTopics, MemeberVisited });
