@@ -11,7 +11,7 @@ namespace API
 {
     class WebGen
     {
-        public const string Meetup_API_Key = "6dcb6c2e1f664511a49537623f51";
+        public const string Meetup_API_Key = "MEETUP_API_KEY";
 
         public static string GetPageAsString(Uri address)
         {
